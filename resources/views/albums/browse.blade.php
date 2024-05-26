@@ -7,38 +7,40 @@
     <hr class="border-t-2 border-gray-700 mt-4 w-1/3 mx-auto">
 
     <!-- Filtering Form -->
-    <form action="{{ route('albums.filter') }}" method="GET" class="text-center mb-4 mt-4">
-        <input type="text" name="keyword" id="keyword" class="border border-gray-400 rounded-md px-4 py-3 w-1/4" placeholder="Search albums or artists">
-        <button type="submit" class="text-white text-lg py-2 px-4 rounded bg-amber-600 hover:bg-amber-700 duration-75">Filter</button>
-    </form>
+    <div class="flex justify-center mb-4 mt-4">
+        <form action="{{ route('albums.filter') }}" method="GET" class="text-center">
+            <input type="text" name="keyword" id="keyword" class="w-1/2 border border-gray-400 rounded-md px-4 py-3 mr-2" placeholder="Search albums or artists">
+            <button type="submit" class="text-white text-lg py-2 px-4 rounded bg-amber-600 hover:bg-amber-700 duration-75">Search</button>
+        </form>
+    </div>
 
-    <!-- Sorting Form -->
-    <form action="{{ route('albums.sort') }}" method="GET" class="text-center mb-4 mt-4">
-        <label for="sortBy" class="mr-2 text-lg">Sort by:</label>
-        <select name="sortBy" id="sortBy" class="bg-white border border-gray-400 rounded-md px-4 py-1 text-center">
-            <option value="title" {{ $sortBy == 'title' ? 'selected' : '' }}>Title</option>
-            <option value="artist" {{ $sortBy == 'artist' ? 'selected' : '' }}>Artist</option>
-            <option value="release_year" {{ $sortBy == 'release_year' ? 'selected' : '' }}>Release Year</option>
-            <option value="price" {{ $sortBy == 'price' ? 'selected' : '' }}>Price</option>
-        </select>
-        <select name="order" id="order" class="bg-white border border-gray-400 rounded-md px-4 py-1 text-center">
-            <option value="asc" {{ $order == 'asc' ? 'selected' : '' }}>Ascending</option>
-            <option value="desc" {{ $order == 'desc' ? 'selected' : '' }}>Descending</option>
-        </select>
-        <button type="submit" class="text-white text-lg py-1 px-5 rounded bg-amber-600 hover:bg-amber-700 duration-75 ">Sort</button>
-    </form>
+    <!-- Sorting Forms -->
+    <div class="flex justify-between mb-4 mt-8">
+        <form action="{{ route('albums.sort') }}" method="GET" class="text-center ml-8">
+            <label for="sortBy" class="mr-2 text-lg">Sort by:</label>
+            <select name="sortBy" id="sortBy" class="bg-white border border-gray-400 rounded-md px-4 py-1 text-center mr-2">
+                <option value="title" {{ $sortBy == 'title' ? 'selected' : '' }}>Title</option>
+                <option value="artist" {{ $sortBy == 'artist' ? 'selected' : '' }}>Artist</option>
+                <option value="release_year" {{ $sortBy == 'release_year' ? 'selected' : '' }}>Release Year</option>
+                <option value="price" {{ $sortBy == 'price' ? 'selected' : '' }}>Price</option>
+            </select>
+            <select name="order" id="order" class="bg-white border border-gray-400 rounded-md px-4 py-1 text-center mr-2">
+                <option value="asc" {{ $order == 'asc' ? 'selected' : '' }}>Ascending</option>
+                <option value="desc" {{ $order == 'desc' ? 'selected' : '' }}>Descending</option>
+            </select>
+            <button type="submit" class="text-white text-lg py-1 px-5 rounded bg-amber-600 hover:bg-amber-700 duration-75">Sort</button>
+        </form>
 
-    <form action="{{ route('albums.sortByMood') }}" method="GET" class="text-center mb-4 mt-4">
-        <label for="mood_id" class="mr-2 text-lg">Filter by Mood:</label>
-        <select name="mood_id" id="mood_id" class="bg-white border border-gray-400 rounded-md px-4 py-1 text-center">
-            @foreach($moods as $mood)
-            <option value="{{ $mood->id }}" @if(isset($_GET['mood_id']) && $_GET['mood_id'] == $mood->id) selected @endif>{{ $mood->name }}</option>
-            @endforeach
-        </select>
-        <button type="submit" class="text-white text-lg py-1 px-5 rounded bg-amber-600 hover:bg-amber-700 duration-75">Sort</button>
-    </form>
-
-
+        <form action="{{ route('albums.sortByMood') }}" method="GET" class="text-center mr-8">
+            <label for="mood_id" class="mr-2 text-lg">Filter by Mood:</label>
+            <select name="mood_id" id="mood_id" class="bg-white border border-gray-400 rounded-md px-4 py-1 text-center mr-2">
+                @foreach($moods as $mood)
+                <option value="{{ $mood->id }}" @if(isset($_GET['mood_id']) && $_GET['mood_id'] == $mood->id) selected @endif>{{ $mood->name }}</option>
+                @endforeach
+            </select>
+            <button type="submit" class="text-white text-lg py-1 px-5 rounded bg-amber-600 hover:bg-amber-700 duration-75">Sort</button>
+        </form>
+    </div>
 </div>
 
 @if(count($albums) > 0)
@@ -72,8 +74,5 @@
 @else
     <p class="text-center text-xl mt-8">No albums found</p>
 @endif
-
-
-
 
 @endsection

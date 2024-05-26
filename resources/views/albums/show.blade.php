@@ -32,21 +32,25 @@
                     </div>
                 @endauth
                 @auth
-                    @if (!$assignedMood)
-                        <form method="post" action="/albums/rate" class="flex items-center mt-4">
-                            @csrf
-                            <input type="hidden" name="album_id" value="{{ $album->id }}">
-                            <label for="mood_id" class="mr-2 text-lg font-semibold">Rate this album:</label>
-                            <select name="mood_id" id="mood_id" class="border-2 border-gray-300 rounded-lg p-2 w-48 mr-4">
-                                @foreach ($moods as $mood)
-                                    <option value="{{ $mood->id }}">{{ $mood->name }}</option>
-                                @endforeach
-                            </select>
-                            <button type="submit" class="px-6 py-2 bg-amber-600 text-white rounded-lg shadow hover:bg-amber-700 transition duration-200">Rate</button>
-                        </form>
-                    @else
-                        <div class="flex justify-center mt-2">
-                            <p class="text-lg font-semibold text-green-600 ml-8 mt-2">You rated this album as {{ $album->moods()->wherePivot('user_id', Auth::id())->first()->name }}.</p>
+                    @if (!is_null($assignedMood) && !$assignedMood)
+                        <!-- Display mood rating form if the mood is not already assigned -->
+                        <div class="flex justify-center mt-6">
+                            <form method="post" action="/albums/rate" class="flex items-center w-auto bg-gray-100 p-6 rounded-lg shadow-md">
+                                @csrf
+                                <input type="hidden" name="album_id" value="{{ $album->id }}">
+                                <label for="mood_id" class="mr-2 text-lg font-semibold">Rate this album:</label>
+                                <select name="mood_id" id="mood_id" class="border-2 border-gray-300 rounded-lg p-2 w-48 mr-4">
+                                    @foreach ($moods as $mood)
+                                        <option value="{{ $mood->id }}">{{ $mood->name }}</option>
+                                    @endforeach
+                                </select>
+                                <button type="submit" class="px-6 py-2 bg-amber-600 text-white rounded-lg shadow hover:bg-amber-700 transition duration-200">Rate</button>
+                            </form>
+                        </div>
+                    @elseif (!is_null($assignedMood) && $assignedMood)
+                        <!-- Display message indicating rating has been assigned along with the assigned rating -->
+                        <div class="flex justify-center mt-6">
+                            <p class="text-lg font-semibold text-green-600">You described this album as {{ $album->moods()->wherePivot('user_id', Auth::id())->first()->name }}.</p>
                         </div>
                     @endif
                 @endauth
@@ -77,7 +81,7 @@
 <div class="flex flex-col items-center mt-8">
     @foreach ($comments->reverse() as $comment)
         <div class="w-2/3 bg-gray-100 rounded-xl p-6 shadow-md mb-4">
-            <p class="text-sm text-gray-500">{{ $comment->created_at->format('Y-m-d') }} - {{ $comment->user->name }}</p>
+            <p class="text-lg text-gray-500">{{ $comment->created_at->format('Y-m-d') }} - {{ $comment->user ? $comment->user->name : 'Unknown User' }}</p>
             <hr class="border-t-2 border-gray-300 mt-2 mb-4">
             <p class="text-lg">{{ $comment->text }}</p>
         </div>
