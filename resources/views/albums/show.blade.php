@@ -35,7 +35,7 @@
                     @if (!is_null($assignedMood) && !$assignedMood)
                         <!-- Display mood rating form if the mood is not already assigned -->
                         <div class="flex justify-center mt-6">
-                            <form method="post" action="/albums/rate" class="flex items-center w-auto bg-gray-100 p-6 rounded-lg shadow-md">
+                            <form method="post" action="/albums/rate" class="flex items-center w-auto bg-gray-200 p-6 rounded-lg py-4">
                                 @csrf
                                 <input type="hidden" name="album_id" value="{{ $album->id }}">
                                 <label for="mood_id" class="mr-2 text-lg font-semibold">Rate this album:</label>
@@ -44,7 +44,7 @@
                                         <option value="{{ $mood->id }}">{{ $mood->name }}</option>
                                     @endforeach
                                 </select>
-                                <button type="submit" class="px-6 py-2 bg-amber-600 text-white rounded-lg shadow hover:bg-amber-700 transition duration-200">Rate</button>
+                                <button type="submit" class="px-6 py-2 bg-green-600 text-white rounded-lg shadow hover:bg-green-700 transition duration-200">Rate</button>
                             </form>
                         </div>
                     @elseif (!is_null($assignedMood) && $assignedMood)
