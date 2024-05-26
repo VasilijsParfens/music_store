@@ -301,5 +301,68 @@ class DatabaseSeeder extends Seeder
             Mood::create(['name' => $mood]);
         }
 
+        // Define mood ratings for each album
+        $albumMoodRatings = [
+            // The Fame Monster
+            1 => [1, 6, 9, 12, 18], // Happy, Romantic, Excited, Reflective, Hopeful
+            // Post
+            2 => [2, 5, 8, 11, 17], // Sad, Angry, Calm, Nostalgic, Determined
+            // Back To Black
+            3 => [3, 4, 7, 10, 16], // Energetic, Relaxed, Melancholic, Focused, Content
+            // Born To Die
+            4 => [1, 5, 9, 13, 15], // Happy, Sad, Excited, Peaceful, Reflective
+            // 1989
+            5 => [2, 6, 8, 12, 19], // Sad, Romantic, Calm, Reflective, Anxious
+            // 30
+            6 => [3, 4, 7, 11, 20], // Energetic, Relaxed, Melancholic, Nostalgic, Inspired
+            // Red
+            7 => [1, 5, 9, 14, 18], // Happy, Sad, Excited, Surprised, Hopeful
+            // 21
+            8 => [2, 6, 8, 10, 17], // Sad, Romantic, Calm, Melancholic, Determined
+            // Abbey Road
+            9 => [3, 4, 7, 12, 16], // Energetic, Relaxed, Melancholic, Reflective, Content
+            // Thriller
+            10 => [1, 5, 9, 11, 15], // Happy, Sad, Excited, Determined, Reflective
+            // The Wall
+            11 => [2, 6, 8, 13, 19], // Sad, Romantic, Calm, Peaceful, Anxious
+            // Bad
+            12 => [3, 4, 7, 10, 17], // Energetic, Relaxed, Melancholic, Focused, Determined
+            // Animal
+            13 => [1, 5, 9, 14, 18], // Happy, Sad, Excited, Surprised, Hopeful
+            // Warrior
+            14 => [2, 6, 8, 11, 16], // Sad, Romantic, Calm, Nostalgic, Content
+            // High Road
+            15 => [3, 4, 7, 12, 20], // Energetic, Relaxed, Melancholic, Reflective, Inspired
+            // The Fame
+            16 => [1, 5, 9, 13, 19], // Happy, Sad, Excited, Peaceful, Anxious
+            // Chromatica
+            17 => [2, 6, 8, 10, 15], // Sad, Romantic, Calm, Melancholic, Reflective
+            // Arrival
+            18 => [3, 4, 7, 11, 16], // Energetic, Relaxed, Melancholic, Determined, Content
+            // Voulez-Vous
+            19 => [1, 5, 9, 14, 20], // Happy, Sad, Excited, Surprised, Inspired
+            // Good Girl Gone Bad
+            20 => [2, 6, 8, 12, 17], // Sad, Romantic, Calm, Reflective, Determined
+            // Rated R
+            21 => [3, 4, 7, 10, 18], // Energetic, Relaxed, Melancholic, Focused, Hopeful
+            // Loud
+            22 => [1, 5, 9, 13, 16], // Happy, Sad, Excited, Peaceful, Content
+        ];
+
+        // Loop through each album and assign mood ratings
+        foreach ($albumMoodRatings as $albumId => $moodIds) {
+            foreach ($moodIds as $moodId) {
+                // Insert record into the database
+                DB::table('album_mood')->insert([
+                    'album_id' => $albumId,
+                    'user_id' => rand(1, 20), // Assuming you have 20 users
+                    'mood_id' => $moodId,
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ]);
+            }
+        }
+
+
     }
 }

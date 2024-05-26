@@ -32,7 +32,7 @@
         <label for="mood_id" class="mr-2 text-lg">Filter by Mood:</label>
         <select name="mood_id" id="mood_id" class="bg-white border border-gray-400 rounded-md px-4 py-1 text-center">
             @foreach($moods as $mood)
-                <option value="{{ $mood->id }}">{{ $mood->name }}</option>
+            <option value="{{ $mood->id }}" @if(isset($_GET['mood_id']) && $_GET['mood_id'] == $mood->id) selected @endif>{{ $mood->name }}</option>
             @endforeach
         </select>
         <button type="submit" class="text-white text-lg py-1 px-5 rounded bg-amber-600 hover:bg-amber-700 duration-75">Sort</button>

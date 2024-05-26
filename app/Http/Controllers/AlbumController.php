@@ -109,15 +109,22 @@ class AlbumController extends Controller
 return view('albums.browse', compact('moods', 'albums', 'sortBy', 'order'));
 }
 
-
-
-
-
     public function show(Album $album)
     {
+        // Get the authenticated user
+        $user = Auth::user();
+
+        // Check if the user has already assigned a mood to this album
+        $assignedMood = $album->moods()->wherePivot('user_id', $user->id)->exists();
+
+        // Retrieve comments for the album with their associated users
         $comments = $album->comments()->with('user')->get();
+
+        // Retrieve all moods
         $moods = Mood::all();
-        return view('albums.show', compact('album', 'comments', 'moods'));
+
+        // Pass the album, comments, moods, and assignedMood to the view
+        return view('albums.show', compact('album', 'comments', 'moods', 'assignedMood'));
     }
 
     public function create()
@@ -214,9 +221,10 @@ return view('albums.browse', compact('moods', 'albums', 'sortBy', 'order'));
     public function showComments($album_id)
     {
         $album = Album::findOrFail($album_id);
-        $comments = $album->comments()->with('user')->get();
+        $comments = $album->comments()->with('user')->latest()->get();
         return view('albums.show', compact('album', 'comments'));
     }
+
 
     public function rate(Request $request)
     {
