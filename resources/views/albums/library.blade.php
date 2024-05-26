@@ -5,7 +5,7 @@
 <div class="container mx-auto">
     <h4 class="justify-center text-4xl text-center mt-8">Your library</h4>
     <hr class="border-t-2 border-gray-700 mt-4 w-1/4 mx-auto">
-    <div class="grid grid-cols-3 gap-4 mt-8">
+    <div class="grid grid-cols-4 gap-4 mt-8">
         @foreach($userOrders as $order)
         <div class="flex justify-center">
             <div class="flex justify-center">

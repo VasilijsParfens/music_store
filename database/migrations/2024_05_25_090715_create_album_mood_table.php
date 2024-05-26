@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('album_mood', function (Blueprint $table) {
             $table->id();
             $table->foreignId('album_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('mood_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

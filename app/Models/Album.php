@@ -45,6 +45,6 @@ class Album extends Model
 
     public function moods()
     {
-        return $this->belongsToMany(Mood::class, 'album_mood');
+        return $this->belongsToMany(Mood::class, 'album_mood')->withPivot('user_id');
     }
 }

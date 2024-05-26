@@ -14,12 +14,12 @@
             </a>
             <a href="/browse">
                 <div class="bg-white w-64 h-12 rounded-md border border-black font-martian flex justify-center items-center hover:bg-slate-200 ease-in-out duration-100">
-                    <p>Browse</p>
+                    <p>Browse albums</p>
                 </div>
             </a>
             <a href="/comment_history">
                 <div class="bg-white w-64 h-12 rounded-md border border-black font-martian flex justify-center items-center hover:bg-slate-200 ease-in-out duration-100">
-                    <p>History</p>
+                    <p>Your activity</p>
                 </div>
             </a>
         </div>

@@ -35,7 +35,7 @@ class AlbumController extends Controller
         $albums = Album::latest()->get(); // Default display
         $sortBy = 'title'; // Default sorting by title
         $order = 'asc'; // Default order ascending
-        $moods = Mood::all(); // Fetch all moods
+        $moods = Mood::whereHas('albums')->get();
 
         return view('albums.browse', compact('albums', 'sortBy', 'order', 'moods'));
     }
@@ -48,7 +48,7 @@ class AlbumController extends Controller
         $order = $request->input('order');
 
         // Fetch all moods
-        $moods = Mood::all();
+        $moods = Mood::whereHas('albums')->get();
 
         $albums = Album::orderBy($sortBy, $order)->get();
 
@@ -220,13 +220,24 @@ return view('albums.browse', compact('moods', 'albums', 'sortBy', 'order'));
 
     public function rate(Request $request)
     {
+        // Validate the request data
         $request->validate([
             'album_id' => 'required|exists:albums,id',
             'mood_id' => 'required|exists:moods,id',
         ]);
+
+        // Get the authenticated user's ID
+        $user_id = auth()->id();
+
+        // Find the album and mood
         $album = Album::findOrFail($request->album_id);
         $mood = Mood::findOrFail($request->mood_id);
-        $album->moods()->syncWithoutDetaching($mood->id);
+
+        // Attach the mood to the album with the user_id
+        $album->moods()->syncWithoutDetaching([$mood->id => ['user_id' => $user_id]]);
+
+        // Redirect back with success message
         return redirect()->back()->with('success', 'Album rated successfully by mood!');
     }
+
 }
