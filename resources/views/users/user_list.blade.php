@@ -46,7 +46,8 @@
     <!-- Conditionally display Admin panel link -->
     <div class="absolute top-0 right-0 mt-14 mr-52 mb-24">
         @if(auth()->check() && auth()->user()->is_admin)
-            <a href="/album_list" class="text-xl hover:underline"><i class="fa-solid fa-hammer fa-lg"></i> Admin Panel</a>
+            <a href="/album_list" class="text-xl hover:underline mr-12"><i class="fa-solid fa-hammer fa-lg"></i> Admin Panel</a>
+            <a href="/stats" class="text-xl hover:underline"><i class="fa-solid fa-chart-simple fa-lg"></i> Statistics</a>
         @endif
     </div>
 
