@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Albums</title>
+    <title>MusicStore</title>
     <link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100..800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/c35bfed5f0.js" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="sort.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -20,52 +20,75 @@
         }
     </script>
 </head>
+
 <body class="bg-orange-50 font-mono">
-    <nav class="bg-amber-600 p-4">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-          <div>
-            <p class="text-white text-xl font-bold">Admin Panel</p>
-          </div>
-          <div class="flex justify-center space-x-32">
-            <a href="/" class="text-white text-xl px-6 py-4 rounded-lg hover:bg-amber-700">Home</a>
-            <a href="/album_list" class="text-white text-xl px-6 py-4 rounded-lg hover:bg-amber-700">Albums</a>
-            <a href="/user_list" class="text-white text-xl px-6 py-4 rounded-lg hover:bg-amber-700">Users</a>
-            <a href="/comment_list" class="text-white text-xl px-6 py-4 rounded-lg hover:bg-amber-700">Comments</a>
-            <a href="/order_list" class="text-white text-xl px-6 py-4 rounded-lg hover:bg-amber-700">Orders</a>
-          </div>
+    <div class="ml-12 mt-10 mb-4 text-4xl font-martian">
+        <a href="/">MusicStore</a>
+    </div>
+    @auth
+    <form class="absolute top-0 right-0 mt-14 mr-14 mb-24" method="POST" action="/logout">
+        @csrf
+        <button type="submit" class="text-xl hover:underline" style="display: inline-flex; align-items: center;">
+        <i class="fa-solid fa-door-open"></i>
+        <span style="margin-left: 5px;">Logout</span>
+        </button>
+
+    </form>
+    @else
+    <div class="absolute top-0 right-0 mt-14 mr-14 mb-24">
+        <a href="/login" title="Account" class="text-xl"><i class="fa-solid fa-right-to-bracket fa-xl"></i> Login</a>
+    </div>
+    <div class="absolute top-0 right-0 mt-14 mr-44 mb-24">
+        <a href="/register" title="Account" class="text-xl"><i class="fa-solid fa-user-plus"></i> Register</a>
+    </div>
+    @endauth
+    <hr class="border-t-2 border-gray-700">
+    <!-- Conditionally display Admin panel link -->
+    <div class="absolute top-0 right-0 mt-14 mr-52 mb-24">
+        @if(auth()->check() && auth()->user()->is_admin)
+            <a href="/album_list" class="text-xl hover:underline"><i class="fa-solid fa-hammer fa-lg"></i> Admin Panel</a>
+        @endif
+    </div>
+
+    <nav class="bg-orange-200 p-4 shadow-lg mt-8">
+        <div class="max-w-7xl mx-auto flex justify-center space-x-60">
+            <a href="/album_list" class="text-black text-xl px-4 py-2 rounded-lg hover:bg-orange-400">Albums</a>
+            <a href="/user_list" class="text-black text-xl px-4 py-2 rounded-lg hover:bg-orange-400">Users</a>
+            <a href="/comment_list" class="text-black text-xl px-4 py-2 rounded-lg hover:bg-orange-400">Comments</a>
+            <a href="/order_list" class="text-black text-xl px-4 py-2 rounded-lg hover:bg-orange-400">Orders</a>
         </div>
     </nav>
 
-    <div class="flex justify-center items-center mr-56 mt-8"> <!-- Centering the table horizontally -->
-        <div class="max-w-4xl">
+    <div class="flex justify-center items-center mt-8">
+        <div class="max-w-7xl w-full px-4">
             @if(count($albums) > 0)
-                <table class="min-w-full divide-y divide-gray-200"> <!-- Centering the table horizontally -->
+                <table class="min-w-full divide-y divide-gray-200 bg-white shadow-md rounded-lg overflow-hidden">
                     <thead class="bg-gray-100">
                         <tr>
-                            <th class="px-10 py-4 text-left text-sm font-medium text-gray-700 uppercase tracking-wider max-w-xs">Album Id</th>
-                            <th class="px-10 py-4 text-left text-sm font-medium text-gray-700 uppercase tracking-wider max-w-xs">Cover</th>
-                            <th class="px-10 py-4 text-left text-sm font-medium text-gray-700 uppercase tracking-wider max-w-xs">Artist</th>
-                            <th class="px-10 py-4 text-left text-sm font-medium text-gray-700 uppercase tracking-wider max-w-xs">Title</th>
-                            <th class="px-10 py-4 text-left text-sm font-medium text-gray-700 uppercase tracking-wider">Price</th>
-                            <th class="px-10 py-4 text-left text-sm font-medium text-gray-700 uppercase tracking-wider">Actions</th>
+                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-700 uppercase tracking-wider">Album Id</th>
+                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-700 uppercase tracking-wider">Cover</th>
+                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-700 uppercase tracking-wider">Artist</th>
+                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-700 uppercase tracking-wider">Title</th>
+                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-700 uppercase tracking-wider">Price</th>
+                            <th class="px-6 py-4 text-left text-sm font-medium text-gray-700 uppercase tracking-wider">Actions</th>
                         </tr>
                     </thead>
-                    <tbody class="bg-white divide-y divide-gray-200 text-xl">
+                    <tbody class="bg-white divide-y divide-gray-200">
                         @foreach($albums as $album)
                             <tr>
-                                <td class="px-10 py-6 whitespace-nowrap">{{ $album->id }}</td>
-                                <td class="px-26 py-6 whitespace-nowrap">
-                                    <img class="w-35 h-35 rounded-lg" src="{{$album->album_cover ? asset('storage/' . $album->album_cover) : asset('/images/noimage.jpg')}}" alt="" />
+                                <td class="px-6 py-4 whitespace-nowrap">{{ $album->id }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <img class="w-16 h-16 rounded-lg" src="{{$album->album_cover ? asset('storage/' . $album->album_cover) : asset('/images/noimage.jpg')}}" alt="" />
                                 </td>
-                                <td class="px-10 py-6 whitespace-nowrap">{{ $album->artist }}</td>
-                                <td class="px-10 py-6 whitespace-nowrap">{{ $album->title }}</td>
-                                <td class="px-10 py-6 whitespace-nowrap">{{ $album->price }}$</td>
-                                <td class="px-10 py-6 whitespace-nowrap">
-                                    <a href="/albums/{{ $album->id }}/edit" class="text-white mr-4 p-4 px-6 rounded-xl bg-indigo-900">Edit</a>
-                                    <form method="POST" action="/albums/{{ $album->id }}" >
+                                <td class="px-6 py-4 whitespace-nowrap">{{ $album->artist }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ $album->title }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ $album->price }}$</td>
+                                <td class="px-6 py-4 whitespace-nowrap flex space-x-2">
+                                    <a href="/albums/{{ $album->id }}/edit" class="text-white p-2 rounded-lg bg-indigo-600 hover:bg-indigo-800">Edit</a>
+                                    <form method="POST" action="/albums/{{ $album->id }}">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="text-white mt-8 p-4 px-6 rounded-xl bg-red-900">Delete</button>
+                                        <button type="submit" class="text-white p-2 rounded-lg bg-red-600 hover:bg-red-800">Delete</button>
                                     </form>
                                 </td>
                             </tr>
@@ -73,11 +96,11 @@
                     </tbody>
                 </table>
             @else
-                <p class="text-center">No albums found</p>
+                <p class="text-center text-lg text-gray-700">No albums found</p>
             @endif
         </div>
     </div>
 
-    <a href="/albums/create" class="text-white bg-green-500 px-6 py-3 rounded-md hover:bg-green-600 fixed bottom-4 right-4 z-50">Create Album</a>
+    <a href="/albums/create" class="text-white bg-green-500 px-6 py-3 rounded-md hover:bg-green-600 fixed bottom-4 right-4 shadow-lg">Create Album</a>
 </body>
 </html>

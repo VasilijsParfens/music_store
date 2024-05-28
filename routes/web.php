@@ -5,6 +5,7 @@ use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\StatsController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Middleware\AuthenticateMiddleware;
 
@@ -34,6 +35,9 @@ Route::group(['middleware' => AdminMiddleware::class], function () {
     Route::get('/comments/user/{userId}', [CommentController::class, 'getCommentsByUser']);
     Route::get('/comments/album/{albumId}', [CommentController::class, 'getCommentsByAlbum']);
     Route::delete('/comments/{comment}', [CommentController::class, 'destroy_comment']);
+
+    // Stats page for admin
+    Route::get('/stats', [StatsController::class, 'showStatistics'])->name('stats');
 });
 
 // Browse all albums
