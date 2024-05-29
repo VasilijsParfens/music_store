@@ -14,7 +14,6 @@ Composer is a dependency manager for PHP. If you haven't installed Composer yet,
 
 To install Composer dependencies in your project, run the following command in your project directory:
 
-```bash
 composer install
 
 ## Step 2: Create .env File
