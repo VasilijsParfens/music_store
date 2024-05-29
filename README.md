@@ -20,8 +20,6 @@ composer install
 
 The .env file contains environment-specific configuration, such as database connection details. Copy the .env.example file to create a new .env file:
 
-bash
-
 cp .env.example .env
 
 Next, edit the .env file to configure your database connection:
@@ -39,8 +37,6 @@ DB_PASSWORD=your_database_password
 
 To run the database migrations and seed the database with test data, use the following Artisan command:
 
-bash
-
 php artisan migrate:refresh --seed
 
 This command will reset the database and run all migrations, then seed it with test data.
@@ -48,8 +44,6 @@ This command will reset the database and run all migrations, then seed it with t
 ## Step 4: Generate Application Key
 
 Laravel requires an application key, which is used for encryption. Generate the application key by running:
-
-bash
 
 php artisan key:generate
 
@@ -59,8 +53,6 @@ This command will update the APP_KEY value in your .env file.
 
 Move the album_covers folder to the storage/app/public directory. You can use the following command:
 
-bash
-
 mv path/to/album_covers storage/app/public/
 
 Make sure to replace path/to/album_covers with the actual path to your album_covers folder.
@@ -69,8 +61,6 @@ Make sure to replace path/to/album_covers with the actual path to your album_cov
 
 To create a symbolic link from storage/app/public to public/storage, run the following Artisan command:
 
-bash
-
 php artisan storage:link
 
 This command allows you to access the files in storage/app/public from the public directory.
@@ -78,8 +68,6 @@ This command allows you to access the files in storage/app/public from the publi
 ## Step 7: Run the Development Server
 
 To start the Laravel development server, run the following command:
-
-bash
 
 php artisan serve
 
