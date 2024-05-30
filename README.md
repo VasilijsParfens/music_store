@@ -2,6 +2,15 @@
 
 This guide will walk you through setting up a Laravel project, including installing Composer, configuring the environment file, migrating and seeding the database, generating an application key, managing storage, and running the development server.
 
+# Tools used for development
+
+- HTML
+- CSS (with Tailwind Css)
+- JavaScript
+- Laravel
+- VsCode
+- Laragon
+
 ## Prerequisites
 
 - PHP (>= 7.3)
