@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
 
         Album::create([
             'title' => 'The Fame Monster',
-            'album_cover' => 'album_covers/The_Fame_Monster.jpg',
+            'album_cover' => 'album_covers/The_Fame_Monster.png',
             'artist' => 'Lady Gaga',
             'release_year' => '2009',
             'description' => "The Fame Monster is a reissue of American singer Lady Gaga's debut studio album, The Fame, and was released on November 18, 2009, through Interscope Records. Initially planned solely as a deluxe edition reissue of The Fame, Interscope later decided to release the eight new songs as a standalone EP in some territories.,",
@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
 
         Album::create([
             'title' => 'Post',
-            'album_cover' => 'album_covers/Post.jpg',
+            'album_cover' => 'album_covers/im1hg5x5.bmp',
             'artist' => 'Bjork',
             'release_year' => '1997',
             'description' => "Post is the second studio album by Icelandic singer Björk. It was released on 7 June 1995 by One Little Indian Records.",
@@ -41,7 +41,7 @@ class DatabaseSeeder extends Seeder
 
         Album::create([
             'title' => 'Back To Black',
-            'album_cover' => 'album_covers/Back_to_Black.jpg',
+            'album_cover' => 'album_covers/Amy_Winehouse_-_Back_To_Black_(Deluxe_Edition).jpg',
             'artist' => 'Amy Winehouse',
             'release_year' => '2006',
             'description' => "Singer Amy Winehouse's tumultuous relationship with Blake Fielder-Civil inspires her to write and record the groundbreaking album Back to Black.",
@@ -50,7 +50,7 @@ class DatabaseSeeder extends Seeder
 
         Album::create([
             'title' => 'Born To Die',
-            'album_cover' => 'album_covers/Born_to_Die.jpg',
+            'album_cover' => 'album_covers/kpdfy62c.bmp',
             'artist' => 'Lana Del Rey',
             'release_year' => '2011',
             'description' => "Born to Die is the second studio album and major-label debut by American singer-songwriter Lana Del Rey. It was released on January 27, 2012, through Interscope Records and Polydor Records. A reissue of the album, subtitled The Paradise Edition, was released on November 9, 2012. The new material from the reissue was also made available on a separate EP titled Paradise. ",
@@ -59,7 +59,7 @@ class DatabaseSeeder extends Seeder
 
         Album::create([
             'title' => '1989',
-            'album_cover' => 'album_covers/1989.jpg',
+            'album_cover' => 'album_covers/Taylor_Swift_-_1989.jpeg',
             'artist' => 'Taylor Swift',
             'release_year' => '2014',
             'description' => "1989 is the fifth studio album by American singer-songwriter Taylor Swift, released on October 27, 2014, through Big Machine Records. Inspired by 1980s synth-pop to create a record that shifted her sound and image from country to mainstream pop, Swift enlisted Max Martin as co-executive producer and named the album after her birth year.",
@@ -68,7 +68,7 @@ class DatabaseSeeder extends Seeder
 
         Album::create([
             'title' => '30',
-            'album_cover' => 'album_covers/30.jpg',
+            'album_cover' => 'album_covers/Adele_-_30.png',
             'artist' => 'Adele',
             'release_year' => '2021',
             'description' => "30 is the fourth studio album by the English singer and songwriter Adele. It was released on 19 November 2021 by Columbia Records. Her first studio album in six years following 25, 30 was inspired by Adele's experiences and anxiety following her divorce and its impact on her son's life, along with motherhood and fame.",
@@ -77,7 +77,7 @@ class DatabaseSeeder extends Seeder
 
         Album::create([
             'title' => 'Red',
-            'album_cover' => 'album_covers/Red.jpg',
+            'album_cover' => 'album_covers/Taylor_Swift_-_Red.png',
             'artist' => 'Taylor Swift',
             'release_year' => '2012',
             'description' => "Red is the fourth studio album by American singer-songwriter Taylor Swift. It was released on October 22, 2012, by Big Machine Records. She co-wrote the album with a variety of collaborators including Max Martin, Shellback, and Dan Wilson.",
@@ -86,7 +86,7 @@ class DatabaseSeeder extends Seeder
 
         Album::create([
             'title' => '21',
-            'album_cover' => 'album_covers/21.jpg',
+            'album_cover' => 'album_covers/Adele_-_21.png',
             'artist' => 'Adele',
             'release_year' => '2011',
             'description' => "21 is the second studio album by British singer-songwriter Adele. It was released on 24 January 2011 in Europe and on 22 February 2011 in North America by XL Recordings and Columbia Records. The album was named after the age of the singer during its production.",
@@ -95,7 +95,7 @@ class DatabaseSeeder extends Seeder
 
         Album::create([
             'title' => 'Abbey Road',
-            'album_cover' => 'album_covers/Abbey_Road.jpg',
+            'album_cover' => 'album_covers/The_Beatles_-_Abbey_Road.jpg',
             'artist' => 'The Beatles',
             'release_year' => '1969',
             'description' => "Abbey Road is the eleventh studio album by the English rock band the Beatles, released on 26 September 1969 by Apple Records. Named after the location of EMI Studios in London, the cover features the group walking across the street's zebra crossing, an image that became one of the most famous and imitated in popular music.",
@@ -104,7 +104,7 @@ class DatabaseSeeder extends Seeder
 
         Album::create([
             'title' => 'Thriller',
-            'album_cover' => 'album_covers/Thriller.jpg',
+            'album_cover' => 'album_covers/Michael_Jackson_-_Thriller.png',
             'artist' => 'Michael Jackson',
             'release_year' => '1982',
             'description' => "Thriller is the sixth studio album by American singer Michael Jackson, released on November 30, 1982, by Epic Records. It explores genres similar to Jackson's previous album, Off the Wall, including pop, post-disco, rock, and funk.",
@@ -113,7 +113,7 @@ class DatabaseSeeder extends Seeder
 
         Album::create([
             'title' => 'The Wall',
-            'album_cover' => 'album_covers/The_Wall.jpg',
+            'album_cover' => 'album_covers/Pink_Floyd_The_Wall.jpeg',
             'artist' => 'Pink Floyd',
             'release_year' => '1979',
             'description' => "The Wall is the eleventh studio album by the English rock band Pink Floyd, released on 30 November 1979 by Harvest and Columbia Records. It is a rock opera that explores themes of abandonment and personal isolation.",
@@ -122,7 +122,7 @@ class DatabaseSeeder extends Seeder
 
         Album::create([
             'title' => 'Bad',
-            'album_cover' => 'album_covers/Bad.jpg',
+            'album_cover' => 'album_covers/Michael_Jackson_-_Bad.png',
             'artist' => 'Michael Jackson',
             'release_year' => '1987',
             'description' => "Bad is the seventh studio album by American singer Michael Jackson, released on August 31, 1987, by Epic Records. The album features appearances from Stevie Wonder, Siedah Garrett, and even a duet with Prince.",
@@ -131,7 +131,7 @@ class DatabaseSeeder extends Seeder
 
         Album::create([
             'title' => 'Animal',
-            'album_cover' => 'album_covers/Animal.jpg',
+            'album_cover' => 'album_covers/AnimalKesha.png',
             'artist' => 'Kesha',
             'release_year' => '2010',
             'description' => "Animal is the debut studio album by American singer Kesha, released on January 1, 2010, by RCA Records. The album's sound is primarily pop, with elements of dance-pop, electro-pop, and synth-pop.",
@@ -140,7 +140,7 @@ class DatabaseSeeder extends Seeder
 
         Album::create([
             'title' => 'Warrior',
-            'album_cover' => 'album_covers/Warrior.jpg',
+            'album_cover' => 'album_covers/Kesha_Warrior.jpeg',
             'artist' => 'Kesha',
             'release_year' => '2012',
             'description' => "Warrior is the second studio album by American singer Kesha, released on November 30, 2012, by Kemosabe and RCA Records. The album features contributions from various producers, including Dr. Luke, Benny Blanco, Cirkut, and Max Martin.",
@@ -149,7 +149,7 @@ class DatabaseSeeder extends Seeder
 
         Album::create([
             'title' => 'High Road',
-            'album_cover' => 'album_covers/High_Road.jpg',
+            'album_cover' => 'album_covers/Kesha_-_High_Road.png',
             'artist' => 'Kesha',
             'release_year' => '2020',
             'description' => "High Road is the fourth studio album by American singer Kesha, released on January 31, 2020, by RCA Records. The album features collaborations with various artists, including Big Freedia, Brian Wilson, Sturgill Simpson, and Wrabel.",
@@ -158,7 +158,7 @@ class DatabaseSeeder extends Seeder
 
         Album::create([
             'title' => 'The Fame',
-            'album_cover' => 'album_covers/The_Fame.jpg',
+            'album_cover' => 'album_covers/Lady_Gaga_–_The_Fame_album_cover.png',
             'artist' => 'Lady Gaga',
             'release_year' => '2008',
             'description' => "The Fame is the debut studio album by American singer Lady Gaga, released on August 19, 2008, by Interscope Records. The album incorporates elements of synth-pop, dance-pop, and electropop, and features contributions from various producers, including RedOne, Martin Kierszenbaum, and Rob Fusari.",
@@ -167,7 +167,7 @@ class DatabaseSeeder extends Seeder
 
         Album::create([
             'title' => 'Chromatica',
-            'album_cover' => 'album_covers/Chromatica.jpg',
+            'album_cover' => 'album_covers/Lady_Gaga_-_Chromatica_(Official_Album_Cover).png',
             'artist' => 'Lady Gaga',
             'release_year' => '2020',
             'description' => "Chromatica is the sixth studio album by Lady Gaga, released on May 29, 2020, by Interscope Records. The album features a return to dance-pop and electropop, with themes of resilience and escapism.",
@@ -176,7 +176,7 @@ class DatabaseSeeder extends Seeder
 
         Album::create([
             'title' => 'Arrival',
-            'album_cover' => 'album_covers/Arrival.jpg',
+            'album_cover' => 'album_covers/ABBA_-_Arrival.png',
             'artist' => 'ABBA',
             'release_year' => '1976',
             'description' => "Arrival is the fourth studio album by Swedish pop group ABBA, released on 11 October 1976 by Polar Records. The album features hit singles such as 'Dancing Queen', 'Money, Money, Money', and 'Knowing Me, Knowing You'.",
@@ -185,7 +185,7 @@ class DatabaseSeeder extends Seeder
 
         Album::create([
             'title' => 'Voulez-Vous',
-            'album_cover' => 'album_covers/Voulez_Vous.jpg',
+            'album_cover' => 'album_covers/Voulez_Vous.jpeg',
             'artist' => 'ABBA',
             'release_year' => '1979',
             'description' => "Voulez-Vous is the sixth studio album by ABBA, released on 23 April 1979 by Polar Records. The album includes popular tracks such as 'Chiquitita' and 'Does Your Mother Know'.",
@@ -194,7 +194,7 @@ class DatabaseSeeder extends Seeder
 
         Album::create([
             'title' => 'Good Girl Gone Bad',
-            'album_cover' => 'album_covers/Good_Girl_Gone_Bad.jpg',
+            'album_cover' => 'album_covers/Rihanna_-_Good_Girl_Gone_Bad.png',
             'artist' => 'Rihanna',
             'release_year' => '2007',
             'description' => "Good Girl Gone Bad is the third studio album by Barbadian singer Rihanna, released on May 31, 2007, by Def Jam Recordings. The album marked a departure from her previous styles, incorporating more dance-pop and uptempo songs.",
@@ -203,7 +203,7 @@ class DatabaseSeeder extends Seeder
 
         Album::create([
             'title' => 'Rated R',
-            'album_cover' => 'album_covers/Rated_R.jpg',
+            'album_cover' => 'album_covers/Rihanna_-_Rated_R.png',
             'artist' => 'Rihanna',
             'release_year' => '2009',
             'description' => "Rated R is the fourth studio album by Rihanna, released on November 20, 2009, by Def Jam Recordings. The album explores darker themes and incorporates elements of hip hop, rock, and dubstep.",
@@ -212,7 +212,7 @@ class DatabaseSeeder extends Seeder
 
         Album::create([
             'title' => 'Loud',
-            'album_cover' => 'album_covers/Loud.jpg',
+            'album_cover' => 'album_covers/Rihanna_-_Loud.png',
             'artist' => 'Rihanna',
             'release_year' => '2010',
             'description' => "Loud is the fifth studio album by Rihanna, released on November 12, 2010, by Def Jam Recordings. The album features uptempo dance-pop and electro-R&B songs, including the hit singles 'Only Girl (In the World)' and 'What's My Name?'",
