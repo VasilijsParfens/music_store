@@ -80,6 +80,7 @@ php artisan serve
 ```
 This command will start a local development server at http://127.0.0.1:8000.
 
+## 5 Test cases
 | **Test Case ID** | **Controller**   | **Method**            | **Test Description**                                             | **Expected Outcome**                                             |
 |------------------|------------------|-----------------------|------------------------------------------------------------------|------------------------------------------------------------------|
 | TC01             | AlbumController  | index                 | Verify that the index method retrieves the newest and best-selling albums | The method should return the correct view with newest and best-selling albums |
