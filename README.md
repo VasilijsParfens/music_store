@@ -79,3 +79,12 @@ To start the Laravel development server, run the following command:
 php artisan serve
 ```
 This command will start a local development server at http://127.0.0.1:8000.
+
+| **Test Case ID** | **Controller**   | **Method**            | **Test Description**                                             | **Expected Outcome**                                             |
+|------------------|------------------|-----------------------|------------------------------------------------------------------|------------------------------------------------------------------|
+| TC01             | AlbumController  | index                 | Verify that the index method retrieves the newest and best-selling albums | The method should return the correct view with newest and best-selling albums |
+| TC02             | AlbumController  | sort                  | Verify that the sort method sorts albums by title in ascending order  | The method should return the albums sorted by title in ascending order |
+| TC03             | CommentController| storeComment          | Verify that a comment can be successfully added to an album      | The comment should be added to the database, and the view should show the comment |
+| TC04             | OrderController  | showLibrary           | Verify that the showLibrary method retrieves the authenticated user's orders | The method should return the correct view with the user's orders |
+| TC05             | UserController   | store                 | Verify that a new user can be successfully registered            | The user should be added to the database, logged in, and redirected to the homepage |
+
