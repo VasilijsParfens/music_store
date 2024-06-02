@@ -21,6 +21,25 @@ class DatabaseSeeder extends Seeder
     {
         User::factory(20)->create();
 
+        // Create two users, one regular and one admin
+        User::create([
+            'name' => 'John Doe',
+            'email' => 'john.doe@gmail.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('parole123'),
+            'is_admin' => false,
+            'remember_token' => null,
+        ]);
+
+        User::create([
+            'name' => 'Jane Doe',
+            'email' => 'jane.doe@gmail.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('parole123'),
+            'is_admin' => true,
+            'remember_token' => null,
+        ]);
+
         Album::create([
             'title' => 'The Fame Monster',
             'album_cover' => 'album_covers/The_Fame_Monster.png',
