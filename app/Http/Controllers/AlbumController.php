@@ -115,7 +115,11 @@ return view('albums.browse', compact('moods', 'albums', 'sortBy', 'order'));
         $user = Auth::user();
 
         // Check if the user has already assigned a mood to this album
-        $assignedMood = $album->moods()->wherePivot('user_id', $user->id)->exists();
+        if ($user) {
+            $assignedMood = $album->moods()->wherePivot('user_id', $user->id)->exists();
+        } else {
+            $assignedMood = false; // Default value or some other handling when the user is not logged in
+        }
 
         // Retrieve comments for the album with their associated users
         $comments = $album->comments()->with('user')->get();
